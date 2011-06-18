@@ -187,6 +187,9 @@ module ActiveRecord
                          rescue
                            0
                          end
+        if @database_year == 2011
+          require 'arel/visitors/sqlserver2011'	 
+        end
         initialize_sqlserver_caches
         use_database
         unless SUPPORTED_VERSIONS.include?(@database_year)
